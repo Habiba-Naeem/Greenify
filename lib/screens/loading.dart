@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:greenify/constants.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -27,22 +28,31 @@ class _LoadingState extends State<Loading> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    authenticateUser();
+    //authenticateUser();
   }
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
+        backgroundColor: Colors.green[50],
         body: Center(
             child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text("Greenify"),
-        SpinKitRotatingCircle(
-          color: Colors.greenAccent,
-          size: 50.0,
-        )
-      ],
-    )));
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Greenify",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 70,
+                  color: kPrimaryColor),
+            ),
+            SizedBox(height: size.height * 0.2),
+            SpinKitRotatingCircle(
+              color: kPrimaryLightColor,
+              size: 50.0,
+            )
+          ],
+        )));
   }
 }
