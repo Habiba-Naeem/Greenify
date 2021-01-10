@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:greenify/Screens/Welcome/components/background.dart';
-import 'package:greenify/Screens/Welcome/components/header.dart';
 import 'package:greenify/components/rounded_button.dart';
 import 'package:greenify/constants.dart';
 
@@ -14,7 +13,6 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            //HeaderWithSearchBox(size: size),
             Text(
               "Greenify",
               style: TextStyle(

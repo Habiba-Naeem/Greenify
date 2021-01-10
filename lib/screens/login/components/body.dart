@@ -6,6 +6,7 @@ import 'package:greenify/components/rounded_button.dart';
 import 'package:greenify/components/rounded_input_field.dart';
 import 'package:greenify/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:greenify/constants.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -22,12 +23,18 @@ class Body extends StatelessWidget {
           children: <Widget>[
             Text(
               "LOGIN",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
             ),
             SizedBox(height: size.height * 0.03),
-            SvgPicture.asset(
-              "assets/icons/login.svg",
-              height: size.height * 0.35,
+            Text(
+              "Greenify",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 70,
+                  color: kPrimaryColor),
             ),
             SizedBox(height: size.height * 0.03),
             RoundedInputField(
@@ -44,14 +51,7 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
               press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SignUpScreen();
-                    },
-                  ),
-                );
+                Navigator.pushReplacementNamed(context, '/signup');
               },
             ),
           ],
