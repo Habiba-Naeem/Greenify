@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greenify/screens/Welcome/welcome.dart';
+import 'package:greenify/Screens/Login/login.dart';
+import 'package:greenify/Screens/Signup/signup.dart';
 import 'package:greenify/constants.dart';
 import 'package:greenify/screens/loading.dart';
 
@@ -14,6 +16,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Loading(),
         '/home': (context) => WelcomeScreen(),
+        '/login': (context) => LoginScreen(),
+        '/signup': (context) => SignUpScreen()
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
