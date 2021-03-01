@@ -20,7 +20,7 @@ class _LoadingState extends State<Loading> {
  */
   void authenticateUser() {
     Future.delayed(Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/welcome');
     });
   }
 
@@ -28,7 +28,7 @@ class _LoadingState extends State<Loading> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    //authenticateUser();
+    authenticateUser();
   }
 
   @override
