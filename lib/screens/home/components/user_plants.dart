@@ -46,7 +46,14 @@ class UsersPlants extends StatelessWidget {
             title: "Samantha",
             country: "Russia",
             price: 440,
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -72,72 +79,15 @@ class UserPlantCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-        margin: EdgeInsets.only(
-          left: kDefaultPadding,
-          right: kDefaultPadding,
-          top: kDefaultPadding / 2,
-          bottom: kDefaultPadding * 2.5,
-        ),
-        //width: size.width * 0.4,
-        child: Container(
-          height: 200,
-          child: GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            children: <Widget>[
-              Image.asset(image),
-              GestureDetector(
-                onTap: press,
-                child: Container(
-                  padding: EdgeInsets.all(kDefaultPadding / 2),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0, 10),
-                        blurRadius: 50,
-                        color: kPrimaryColor.withOpacity(0.23),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: <Widget>[
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                                text: "$title\n".toUpperCase(),
-                                style: Theme.of(context).textTheme.button),
-                            TextSpan(
-                              text: "$country".toUpperCase(),
-                              style: TextStyle(
-                                color: kPrimaryColor.withOpacity(0.5),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Spacer(),
-                      Text(
-                        '\$$price',
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: kPrimaryColor),
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
-        )
-        /* Column(
+      margin: EdgeInsets.only(
+        left: kDefaultPadding,
+        right: kDefaultPadding,
+        top: kDefaultPadding / 2,
+        bottom: kDefaultPadding * 2.5,
+      ),
+      child: GridView.count(
+        crossAxisCount: 2,
+        shrinkWrap: true,
         children: <Widget>[
           Image.asset(image),
           GestureDetector(
@@ -188,7 +138,7 @@ class UserPlantCard extends StatelessWidget {
             ),
           )
         ],
-      ), */
-        );
+      ),
+    );
   }
 }
