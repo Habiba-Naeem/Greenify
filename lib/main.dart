@@ -4,6 +4,7 @@ import 'package:greenify/Screens/Login/login.dart';
 import 'package:greenify/Screens/Signup/signup.dart';
 import 'package:greenify/constants.dart';
 import 'package:greenify/screens/loading.dart';
+import 'package:greenify/Screens/home/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => Loading(),
         '/welcome': (context) => WelcomeScreen(),
         '/login': (context) => LoginScreen(),
-        '/signup': (context) => SignUpScreen()
+        '/signup': (context) => SignUpScreen(),
+        '/home': (context) => HomeScreen()
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',

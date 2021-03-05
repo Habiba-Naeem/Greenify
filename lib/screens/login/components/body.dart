@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:greenify/Screens/Login/components/background.dart';
-import 'package:greenify/Screens/Signup/signup.dart';
 import 'package:greenify/components/already_have_an_account_acheck.dart';
 import 'package:greenify/components/rounded_button.dart';
 import 'package:greenify/components/rounded_input_field.dart';
 import 'package:greenify/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:greenify/constants.dart';
 
 class Body extends StatelessWidget {
@@ -46,7 +44,9 @@ class Body extends StatelessWidget {
             ),
             RoundedButton(
               text: "LOGIN",
-              press: () {},
+              press: () {
+                Navigator.pushReplacementNamed(context, "/home");
+              },
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(

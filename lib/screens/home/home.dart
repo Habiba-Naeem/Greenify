@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:greenify/components/my_bottom_nav_bar.dart';
 import 'package:greenify/screens/home/components/body.dart';
 
