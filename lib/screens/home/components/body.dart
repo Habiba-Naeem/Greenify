@@ -20,8 +20,8 @@ class Body extends StatelessWidget {
             HeaderWithSearchBox(size: size),
             TitleWithMoreBtn(title: "My Plants", press: () {}),
             UsersPlants(),
-            TitleWithMoreBtn(title: "Featured Plants", press: () {}),
-            FeaturedPlants(),
+            /*  TitleWithMoreBtn(title: "Featured Plants", press: () {}),
+            FeaturedPlants(), */
             SizedBox(height: kDefaultPadding),
           ],
         ),

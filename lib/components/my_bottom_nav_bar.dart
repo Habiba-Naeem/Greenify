@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import '../constants.dart';
+import 'package:greenify/constants.dart';
 
 class MyBottomNavBar extends StatelessWidget {
   const MyBottomNavBar({
@@ -14,7 +12,6 @@ class MyBottomNavBar extends StatelessWidget {
       padding: EdgeInsets.only(
         left: kDefaultPadding * 2,
         right: kDefaultPadding * 2,
-        bottom: kDefaultPadding,
       ),
       height: 80,
       decoration: BoxDecoration(
@@ -30,20 +27,88 @@ class MyBottomNavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
+          HomeIcon(),
+          LocationIcon(),
           IconButton(
-            icon: SvgPicture.asset("assets/icons/flower.svg"),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: SvgPicture.asset("assets/icons/heart-icon.svg"),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: SvgPicture.asset("assets/icons/user-icon.svg"),
+            icon: Icon(
+              Icons.person_outlined,
+              color: kPrimaryColor,
+              size: 30,
+            ),
             onPressed: () {},
           ),
         ],
       ),
     );
+  }
+}
+
+class HomeIcon extends StatefulWidget {
+  @override
+  _HomeIconState createState() => _HomeIconState();
+}
+
+class _HomeIconState extends State<HomeIcon> {
+  Icon activate = Icon(
+    Icons.home,
+    color: kPrimaryColor,
+    size: 30,
+  );
+  @override
+  Widget build(BuildContext context) {
+    if (ModalRoute.of(context).settings.name == "/home") {
+      setState(() {});
+      return IconButton(
+        icon: activate,
+        onPressed: () {},
+      );
+    } else {
+      setState(() {});
+      return IconButton(
+        icon: Icon(
+          Icons.home_outlined,
+          color: kPrimaryColor,
+          size: 30,
+        ),
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, '/home');
+        },
+      );
+    }
+  }
+}
+
+class LocationIcon extends StatefulWidget {
+  @override
+  _LocationIconState createState() => _LocationIconState();
+}
+
+class _LocationIconState extends State<LocationIcon> {
+  Icon activate = Icon(
+    Icons.location_pin,
+    color: kPrimaryColor,
+    size: 30,
+  );
+  @override
+  Widget build(BuildContext context) {
+    if (ModalRoute.of(context).settings.name == "/map") {
+      setState(() {});
+      return IconButton(
+        icon: activate,
+        onPressed: () {},
+      );
+    } else {
+      setState(() {});
+      return IconButton(
+        icon: Icon(
+          Icons.location_on_outlined,
+          color: kPrimaryColor,
+          size: 30,
+        ),
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, '/map');
+        },
+      );
+    }
   }
 }
