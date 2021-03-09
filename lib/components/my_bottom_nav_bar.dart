@@ -29,14 +29,7 @@ class MyBottomNavBar extends StatelessWidget {
         children: <Widget>[
           HomeIcon(),
           LocationIcon(),
-          IconButton(
-            icon: Icon(
-              Icons.person_outlined,
-              color: kPrimaryColor,
-              size: 30,
-            ),
-            onPressed: () {},
-          ),
+          AddPlantIcon(),
         ],
       ),
     );
@@ -107,6 +100,41 @@ class _LocationIconState extends State<LocationIcon> {
         ),
         onPressed: () {
           Navigator.pushReplacementNamed(context, '/map');
+        },
+      );
+    }
+  }
+}
+
+class AddPlantIcon extends StatefulWidget {
+  @override
+  _AddPlantIconState createState() => _AddPlantIconState();
+}
+
+class _AddPlantIconState extends State<AddPlantIcon> {
+  Icon activate = Icon(
+    Icons.add_box,
+    color: kPrimaryColor,
+    size: 30,
+  );
+  @override
+  Widget build(BuildContext context) {
+    if (ModalRoute.of(context).settings.name == "/addPlant") {
+      setState(() {});
+      return IconButton(
+        icon: activate,
+        onPressed: () {},
+      );
+    } else {
+      setState(() {});
+      return IconButton(
+        icon: Icon(
+          Icons.add_box_outlined,
+          color: kPrimaryColor,
+          size: 30,
+        ),
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, '/addPlant');
         },
       );
     }

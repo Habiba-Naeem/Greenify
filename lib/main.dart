@@ -6,6 +6,7 @@ import 'package:greenify/constants.dart';
 import 'package:greenify/screens/loading.dart';
 import 'package:greenify/Screens/home/home.dart';
 import 'package:greenify/screens/map/map.dart';
+import 'package:greenify/screens//addPlant/addPlant.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => SignUpScreen(),
         '/home': (context) => HomeScreen(),
         '/map': (context) => MapScreen(),
+        '/addPlant': (context) => AddPlantScreen(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
