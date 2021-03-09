@@ -15,6 +15,7 @@ class AddPlantScreen extends StatelessWidget {
   AppBar buildAppBar() {
     return AppBar(
       elevation: 0,
+      title: Text("Add New Plant"),
       leading: IconButton(
         icon: Icon(Icons.ac_unit),
         onPressed: () {},
