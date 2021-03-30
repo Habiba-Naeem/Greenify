@@ -8,8 +8,79 @@ import 'package:greenify/components/rounded_button.dart';
 import 'package:greenify/components/rounded_input_field.dart';
 import 'package:greenify/components/rounded_password_field.dart';
 import 'package:greenify/constants.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-class Body extends StatelessWidget {
+final GoogleSignIn googleSignIn = GoogleSignIn();
+
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  bool isAuth = false;
+
+  PageController pageController;
+
+  int pageIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController();
+
+    // Detects when user signed in
+    googleSignIn.onCurrentUserChanged.listen((account) {
+      handleSignIn(account);
+    }, onError: (err) {
+      print('Error signing in: $err');
+    });
+    // Reauthenticate user when app is opened
+    googleSignIn.signInSilently(suppressErrors: false).then((account) {
+      handleSignIn(account);
+    }).catchError((err) {
+      print('Error signing in: $err');
+    });
+  }
+
+  handleSignIn(GoogleSignInAccount account) {
+    if (account != null) {
+      print('User signed in!: $account');
+      setState(() {
+        isAuth = true;
+      });
+    } else {
+      setState(() {
+        isAuth = false;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  login() {
+    googleSignIn.signIn();
+  }
+
+  logout() {
+    googleSignIn.signOut();
+  }
+
+  onPageChanged(int pageIndex) {
+    setState(() {
+      this.pageIndex = pageIndex;
+    });
+  }
+
+  onTap(int pageIndex) {
+    pageController.animateToPage(pageIndex,
+        duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -70,7 +141,10 @@ class Body extends StatelessWidget {
                 ),
                 SocalIcon(
                   iconSrc: "assets/icons/google-plus.svg",
-                  press: () {},
+                  press: () {
+                    login();
+                    print("login");
+                  },
                 ),
               ],
             )

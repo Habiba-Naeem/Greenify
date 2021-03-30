@@ -13,10 +13,10 @@ class Details extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.all(30.0),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+      child: Column(children: [
         TextFormField(
           decoration: InputDecoration(
-            labelText: "Plant Names",
+            labelText: "Plant Name",
             fillColor: Colors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25.0),
@@ -35,6 +35,14 @@ class Details extends StatelessWidget {
             fontFamily: "Poppins",
           ),
         ),
+        // ignore: deprecated_member_use
+        RaisedButton.icon(
+          onPressed: () {},
+          icon: Icon(
+            Icons.location_pin,
+          ),
+          label: Text("Add Location"),
+        )
       ]),
     );
   }
